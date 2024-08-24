@@ -13,7 +13,10 @@ export default function AddCourse() {
     semester: "",
   });
 
-  const { course_title, course_code, description, year, semester} = course;
+  const { course_title, course_code, description} = course;
+
+  const { year, semester} = course;
+
 
   const onInputChange = (e) => {
     setCourse({ ...course, [e.target.name]: e.target.value });
@@ -27,7 +30,7 @@ export default function AddCourse() {
 
   return (
     <div className="container">
-      <div className="row">
+      <div className="col">
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
           <h2 className="text-center m-4">Add New Course</h2>
 
@@ -71,7 +74,32 @@ export default function AddCourse() {
                 onChange={(e) => onInputChange(e)}
               />
             </div>
-            <div className="mb-3">
+
+            <button type="submit" className="btn btn-outline-primary">
+              Submit
+            </button>
+            <Link className="btn btn-outline-danger mx-2" to="/">
+              Cancel
+            </Link>
+          </form>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <div className="col">
+        <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
+          <h2 className="text-center m-4">Add Semester</h2>
+
+          <form onSubmit={(e) => onSubmit(e)}>
+             <div className="mb-3">
               <label htmlFor="Email" className="form-label">
               year
               </label>
@@ -106,6 +134,7 @@ export default function AddCourse() {
           </form>
         </div>
       </div>
+
     </div>
   );
 }
