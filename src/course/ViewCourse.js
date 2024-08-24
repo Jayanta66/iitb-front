@@ -3,7 +3,7 @@ import React, { useEffect,useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 export default function ViewCourse() {
-  const [course, setTask] = useState({
+  const [course, setCourse] = useState({
     course_title: "",
     course_code: "",
     description: "",
@@ -14,12 +14,12 @@ export default function ViewCourse() {
   const { course_id } = useParams();
 
   useEffect(() => {
-    loadUser();
+    loadCourse();
   }, []);
 
-  const loadUser = async () => {
+  const loadCourse = async () => {
     const result = await axios.get(`http://localhost:8082/api/courses/${course_id}`);
-    setTask(result.data);
+    setCourse(result.data);
   };
 
   return (

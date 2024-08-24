@@ -22,7 +22,7 @@ export default function EditCourse() {
   };
 
   useEffect(() => {
-    loadUser();
+    loadCourse();
   }, []);
 
   const onSubmit = async (e) => {
@@ -31,7 +31,7 @@ export default function EditCourse() {
     navigate("/");
   };
 
-  const loadUser = async () => {
+  const loadCourse = async () => {
     const result = await axios.get(`http://localhost:8082/api/courses/${course_id}`);
     setCourse(result.data);
   };

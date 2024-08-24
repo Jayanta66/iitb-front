@@ -9,7 +9,7 @@ export default function Home() {
   useEffect(() => {
     loadTasks();
   }, []);
-
+//docker push jayantahalder/iitb-front:tagname
   const loadTasks = async () => {
     const result = await axios.get("http://localhost:8082/api/courses");
     setTasks(result.data);
